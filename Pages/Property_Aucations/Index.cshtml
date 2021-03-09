@@ -1,0 +1,54 @@
+﻿@page
+@model RealEstate.Pages.Property_Aucations.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Property_Aucation[0].Bid_Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property_Aucation[0].Property)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property_Aucation[0].Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property_Aucation[0].Dealer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Property_Aucation) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bid_Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Property.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Customer_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dealer.Dealer_Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,46 @@
+﻿@page
+@model RealEstate.Pages.Property_Aucations.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Property_Aucation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Property_Aucation.Bid_Price" class="control-label"></label>
+                <input asp-for="Property_Aucation.Bid_Price" class="form-control" />
+                <span asp-validation-for="Property_Aucation.Bid_Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property_Aucation.PropertyId" class="control-label"></label>
+                <select asp-for="Property_Aucation.PropertyId" class ="form-control" asp-items="ViewBag.PropertyId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property_Aucation.CustomerId" class="control-label"></label>
+                <select asp-for="Property_Aucation.CustomerId" class ="form-control" asp-items="ViewBag.CustomerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property_Aucation.DealerId" class="control-label"></label>
+                <select asp-for="Property_Aucation.DealerId" class ="form-control" asp-items="ViewBag.DealerId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
